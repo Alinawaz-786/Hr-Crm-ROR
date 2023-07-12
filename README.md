@@ -1,10 +1,9 @@
 # README
 ## HR-CRM
-`
+``
 rails new hr-crm
 bundle install
-
-`
+``
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

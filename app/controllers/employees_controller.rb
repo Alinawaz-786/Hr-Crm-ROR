@@ -1,5 +1,7 @@
 class EmployeesController < ApplicationController
 
+    #Common function
+    before_action :set_employee, only: [:edit,:update,:show,:destroy ]
     def index
         @employees =  Employee.all();
       end
@@ -12,9 +14,33 @@ class EmployeesController < ApplicationController
       def create
         @employees =  Employee.new(employee_params);
         if @employees.save
-          redirect_to employees_path, notice: 'Emplyee has benn create successfully'
+          redirect_to employees_path, notice: 'Emplyee has been create successfully'
         else
+        @action = 'Save'
         render :new
+        end
+      end
+ 
+      def edit
+        @action = 'Update'
+      end
+
+      def update
+        if @employees.update(employee_params)
+          redirect_to employees_path, notice: 'Emplyee has been Update successfully'
+        else
+        @action = 'Update'
+        render :edit
+        end
+      end
+      
+      def show
+
+      end
+    
+      def destroy
+        if @employee.destroy
+          redirect_to employees_path, notice: 'Emplyee has been Delete successfully'
         end
       end
 
@@ -30,28 +56,10 @@ class EmployeesController < ApplicationController
               :age
         )
       end 
- 
-      def edit
-        @employees = Employee.find(params[:id])
-        @action = 'Update'
-      end
 
-      def update
-        @employees = Employee.find(params[:id])
-
-        if @employees.update(employee_params)
-          redirect_to employees_path, notice: 'Emplyee has benn Update successfully'
-        else
-        render :edit
-        end
-      end
-
-      
-      def show
+      def set_employee
         @employee = Employee.find(params[:id])
-
-      end
-    
-      def destroy
-      end
+        resuce ActiveRecord::RecordNotFound => error
+        redirect_to employee_path, notice: error
+      end 
 end

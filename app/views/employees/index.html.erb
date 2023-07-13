@@ -4,6 +4,8 @@
             <h2 class="text-center">Employee Record</h2>
         </div>
     </div>
+    <%= flash[:notice] %>
+    <br/>
     <%= link_to 'Create Employe', new_employee_path, class: 'btn btn-primary' %>
 <table class="table table-bordered">
     <thead>
@@ -29,8 +31,9 @@
             <td><%= employee.country %></td>
             <td><%= employee.city %></td>
             <td><%= employee.address_line_1 %></td>
-            <td>  <%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-xs btn-primary' %>
-            <td>  <%= link_to 'Detail', employee_path(employee), class: 'btn btn-xs btn-primary' %>
+            <td>
+                <%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Detail', employee_path(employee), class: 'btn btn-xs btn-primary' %>
             </td>
         </tr>  
         <% end %>

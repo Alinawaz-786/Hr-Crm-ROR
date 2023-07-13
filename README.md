@@ -26,6 +26,10 @@ bundle install
 * Path
 * 'app/javascript/application.js'
 
+## Destory time pin install in window
+* ruby bin/importmap pin rails-ujs
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

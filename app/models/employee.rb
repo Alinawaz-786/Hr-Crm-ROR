@@ -1,4 +1,7 @@
 class Employee < ApplicationRecord
+    #Create RelationShip
+    has_many :documents
+
     validates :first_name, :last_name, presence: true
     validates :email, presence: true, uniqueness: true 
     validates :country, :city, :address_line_1, :pincode, :age, presence: true

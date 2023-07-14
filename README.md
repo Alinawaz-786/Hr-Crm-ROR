@@ -29,6 +29,9 @@ bundle install
 ## Destory time pin install in window
 * ruby bin/importmap pin rails-ujs
 
+## Create One to Many Realtionship in table
+
+* rails g model documents name doc_type employee:references
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

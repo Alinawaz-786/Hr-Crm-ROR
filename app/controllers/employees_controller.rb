@@ -1,20 +1,20 @@
 class EmployeesController < ApplicationController
 
     #Common function
-    before_action :set_employee, only: [:edit,:update,:show,:destroy ]
+    # before_action :set_employee, only: [:edit,:update,:show,:destroy ]
     def index
         @employees =  Employee.all();
       end
     
       def new
-        @employees =  Employee.new;
+        @employee =  Employee.new;
         @action = 'Save'
       end
 
       def create
         @employees =  Employee.new(employee_params);
         if @employees.save
-          redirect_to employees_path, notice: 'Emplyee has been create successfully'
+          redirect_to employees_path, notice: 'Employee has been create successfully'
         else
         @action = 'Save'
         render :new
@@ -22,12 +22,13 @@ class EmployeesController < ApplicationController
       end
  
       def edit
+        @employee = Employee.find(params[:id])
         @action = 'Update'
       end
 
       def update
         if @employees.update(employee_params)
-          redirect_to employees_path, notice: 'Emplyee has been Update successfully'
+          redirect_to employees_path, notice: 'Employee has been Update successfully'
         else
         @action = 'Update'
         render :edit
@@ -35,12 +36,12 @@ class EmployeesController < ApplicationController
       end
       
       def show
-
+        @employee = Employee.find(params[:id])
       end
     
       def destroy
         if @employee.destroy
-          redirect_to employees_path, notice: 'Emplyee has been Delete successfully'
+          redirect_to employees_path, notice: 'Employee has been Delete successfully'
         end
       end
 
@@ -57,9 +58,9 @@ class EmployeesController < ApplicationController
         )
       end 
 
-      def set_employee
-        @employee = Employee.find(params[:id])
-        resuce ActiveRecord::RecordNotFound => error
-        redirect_to employee_path, notice: error
-      end 
+      # def set_employee
+      #   @employee = Employee.find(params[:id])
+      #   resuce ActiveRecord::RecordNotFound => error
+      #   redirect_to employee_path, notice: error
+      # end 
 end

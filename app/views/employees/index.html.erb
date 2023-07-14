@@ -34,6 +34,7 @@
             <td>
                 <%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-xs btn-primary' %>
                 <%= link_to 'Detail', employee_path(employee), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Attach Documents', documents_new_path(employee.id)  , class: 'btn btn-xs btn-info' %>
             </td>
         </tr>  
         <% end %>

@@ -33,6 +33,10 @@ bundle install
 
 * rails g model documents name doc_type employee:references
 
+## Attachment Add with files
+* rails active_storage:install
+* rails db:migrate
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

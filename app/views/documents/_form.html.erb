@@ -1,0 +1,59 @@
+ <%= form_with model: employee do |form| %>
+                    
+    <% if @employee.errors.any? %>
+            <ul>
+                <%  @employee.errors.full_messages.each do |message| %>
+                    <li class="text-danger">
+                            <%= message %>  
+                    </li>
+                <% end %>
+            </ul>
+    <% end %>
+
+    
+    <div class="mb-2">
+        <%= form.label  :first_name %>
+            <%= form.text_field :first_name,  class: 'form-control' %>
+            <%  @employee.errors.full_messages_for(:first_name).each do |message_fn| %><p class="text-danger"><%= message_fn %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :last_name %>
+            <%= form.text_field :last_name,   class: 'form-control' %>
+            <%  @employee.errors.full_messages_for(:last_name).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :email %>
+            <%= form.text_field :email,   class: 'form-control' %>
+            <%  @employee.errors.full_messages_for(:email).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :country %>
+            <%= form.text_field :country,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:country).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :city %>
+            <%= form.text_field :city,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:city).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :address_line_1 %>
+            <%= form.text_field  :address_line_1, class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:address_line_1).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :pincode %> 
+            <%= form.text_field :pincode,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:pincode).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+    <div class="mb-2">
+        <%= form.label  :age %>
+            <%= form.text_field :age,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:age).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <button type="submit" class="btn btn-primary  mb-2"><%= @action %></button>
+    </div>
+
+<% end %>

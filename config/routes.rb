@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
-   devise_for :users, controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations'
-   }
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # get 'home/index'
-  # get '/home' => 'home#index'
-    root 'home#index'
-  
-  resources :employees  
-  resources :documents
-
-  get 'documents/new/:emp_id' => 'documents#new', as: 'documents_new'
-
-  # # Public Root
-  # get 'employe/create'=>'employe#create'
-  # get 'employe/Edit'=>'employe#Edit'
+  # Defines the root path route ("/")
+  # root "articles#index"
 end

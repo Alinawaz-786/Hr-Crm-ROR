@@ -12,8 +12,8 @@ class EmployeesController < ApplicationController
       end
 
       def create
-        @employees =  Employee.new(employee_params);
-        if @employees.save
+        @employee =  Employee.new(employee_params);
+        if @employee.save
           redirect_to employees_path, notice: 'Employee has been create successfully'
         else
         @action = 'Save'
@@ -27,7 +27,8 @@ class EmployeesController < ApplicationController
       end
 
       def update
-        if @employees.update(employee_params)
+           @employee = Employee.find(params[:id])
+        if @employee.update(employee_params)
           redirect_to employees_path, notice: 'Employee has been Update successfully'
         else
         @action = 'Update'
@@ -40,6 +41,7 @@ class EmployeesController < ApplicationController
       end
     
       def destroy
+        @employee = Employee.find(params[:id])
         if @employee.destroy
           redirect_to employees_path, notice: 'Employee has been Delete successfully'
         end
@@ -54,7 +56,11 @@ class EmployeesController < ApplicationController
            :city,
            :address_line_1,
            :pincode,
-              :age
+          :age,
+          :date_of_joining,
+          :date_of_birth,
+          :gander,
+          :about
         )
       end 
 

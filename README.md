@@ -37,6 +37,20 @@ bundle install
 * rails active_storage:install
 * rails db:migrate
 
+## rollback DB and Remove model
+* rails db:rollback
+* rails g model demo text,images
+* rails d model demo text,images
+* rails g migration add_columns_to_employees
+* rails d migration add_columns_to_employees
+* rails g migration rename_employee_bio_attr
+
+## Devise
+*  bundle add devise
+*  rails generate devise:install
+*  rails g devise user
+*  rails db:migrate
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

@@ -48,8 +48,32 @@
     </div>
 
     <div class="mb-2">
+        <%= form.label  :date_of_birth %> 
+            <%= form.date_field :date_of_birth,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:date_of_birth).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+    <div class="mb-2">
+        <%= form.label  :date_of_joining %> 
+            <%= form.date_field :date_of_joining,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:date_of_joining).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+    <div class="mb-2">
+        <%= form.label  :gander %>
+        <%= form.select :gander, options_for_select(Employee::GANDER, selected: employee.gander), {prompt: 'Select Gander'},{class: 'form-select'} %>
+         <%  @employee.errors.full_messages_for(:gander).each do |message_doc_type| %><p class="text-danger"><%= message_doc_type %></p><% end %>
+    </div>
+    
+    <div class="mb-2">
+        <%= form.label  :about %>
+            <%= form.text_area :about,  class: 'form-control'   %>
+            <%  @employee.errors.full_messages_for(:about).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+    <div class="mb-2">
         <%= form.label  :age %>
-            <%= form.text_field :age,  class: 'form-control'   %>
+            <%= form.number_field :age,  class: 'form-control'   %>
             <%  @employee.errors.full_messages_for(:age).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
     </div>
     <div class="mb-2">

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="card rounded-6 mt-5 mb-5">
+        <div class="card-body">
+            <h2 class="text-center">Employee Record</h2>
+        </div>
+    </div>
+    <br/>
+    <%= link_to 'Create Employe', new_employee_path, class: 'btn btn-primary' %>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>   
+    <tbody>
+        <% @employees.each do |employee| %>
+        <tr>
+            
+            <td><%= employee.format_id %></td>
+            <td><%= employee.first_name %></td>
+            <td><%= employee.last_name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.country %></td>
+            <td><%= employee.city %></td>
+            <td><%= employee.address_line_1 %></td>
+            <td>
+                <%= link_to 'Edit', edit_employee_path(employee), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Detail', employee_path(employee), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Attach Documents', documents_new_path(employee.id)  , class: 'btn btn-xs btn-info' %>
+            </td>
+        </tr>  
+        <% end %>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,179 @@
+ <%= form_with model: supplier do |form| %>
+                    
+    <% if @supplier.errors.any? %>
+            <ul>
+                <%  @supplier.errors.full_messages.each do |message| %>
+                    <li class="text-danger">
+                            <%= message %>
+                    </li>
+                <% end %>
+            </ul>
+    <% end %>
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+                <%= form.label  :company_name, class: 'mb-2' %>
+                <%= form.text_field :company_name,  class: 'form-control' %>
+                <%  @supplier.errors.full_messages_for(:company_name).each do |message_fn| %><p class="text-danger"><%= message_fn %></p><% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <%= form.label  :contact_fn, class: 'mb-2' %>
+                <%= form.text_field :contact_fn,   class: 'form-control' %>
+                <%  @supplier.errors.full_messages_for(:contact_fn).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+               <%= form.label  :contact_ln %>
+               <%= form.text_field :contact_ln,   class: 'form-control' %>
+               <%  @supplier.errors.full_messages_for(:contact_ln).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <%= form.label  :contact_title %>
+                <%= form.text_field :contact_title,  class: 'form-control'   %>
+                <%  @supplier.errors.full_messages_for(:contact_title).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+               <%= form.label  :address1 %>
+               <%= form.text_field :address1,  class: 'form-control'   %>
+               <%  @supplier.errors.full_messages_for(:address1).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <%= form.label  :address2 %>
+                <%= form.text_field  :address2, class: 'form-control'   %>
+                <%  @supplier.errors.full_messages_for(:address2).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+               <%= form.label  :city %>
+               <%= form.text_field :city,  class: 'form-control'   %>
+               <%  @supplier.errors.full_messages_for(:city).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <%= form.label  :state %>
+                <%= form.text_field :state,  class: 'form-control'   %>
+                <%  @supplier.errors.full_messages_for(:state).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+               <%= form.label  :country %>
+               <%= form.text_field :country,  class: 'form-control'   %>
+               <%  @supplier.errors.full_messages_for(:country).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                <%= form.label  :phone %>
+                <%= form.text_field :phone,  class: 'form-control'   %>
+                <%  @supplier.errors.full_messages_for(:phone).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+               <%= form.label  :fax %>
+               <%= form.text_field :fax,  class: 'form-control'   %>
+               <%  @supplier.errors.full_messages_for(:fax).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+               <%= form.label  :postal_code %>
+               <%= form.text_field :postal_code,  class: 'form-control'   %>
+               <%  @supplier.errors.full_messages_for(:postal_code).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+              <%= form.label  :email %>
+              <%= form.email_field :email,  class: 'form-control'   %>
+              <%  @supplier.errors.full_messages_for(:email).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                 <%= form.label  :url %>
+                 <%= form.text_field :url,  class: 'form-control'   %>
+                 <%  @supplier.errors.full_messages_for(:url).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+                  <%= form.label  :pay_methods %>
+                  <%= form.text_field :pay_methods,  class: 'form-control'   %>
+                  <%  @supplier.errors.full_messages_for(:pay_methods).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                 <%= form.label  :discount_type %>
+                 <%= form.text_field :discount_type,  class: 'form-control'   %>
+                 <%  @supplier.errors.full_messages_for(:discount_type).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+           <div class="mb-2">
+                <%= form.label  :types_goods %>
+                <%= form.text_field :types_goods,  class: 'form-control'   %>
+                <%  @supplier.errors.full_messages_for(:types_goods).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+           </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="mb-2">
+                 <%= form.label  :discount_available %>
+                 <%= form.text_field :discount_available,  class: 'form-control'   %>
+                 <%  @supplier.errors.full_messages_for(:discount_available).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+             </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+             <div class="mb-2">
+                 <%= form.label  :notes %>
+                 <%= form.text_field :notes,  class: 'form-control'   %>
+                 <%  @supplier.errors.full_messages_for(:notes).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <button type="submit" class="btn btn-primary  mb-2"><%= @action %></button>
+    </div>
+
+<% end %>

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="card rounded-6 mt-5 mb-5">
+        <div class="card-body">
+            <h2 class="text-center">Suppliers Record</h2>
+        </div>
+    </div>
+    <br/>
+    <%= link_to 'Create Employee', new_supplier_path, class: 'btn btn-primary' %>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>   
+    <tbody>
+        <% @suppliers.each do |supplier| %>
+        <tr>
+            
+            <td><%= supplier.format_id %></td>
+            <td><%= supplier.full_name %></td>
+            <td><%= supplier.full_address %></td>
+            <td><%= supplier.email %></td>
+            <td>
+                <%= link_to 'Edit', edit_supplier_path(supplier), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Detail', supplier_path(supplier), class: 'btn btn-xs btn-primary' %>
+            </td>
+        </tr>  
+        <% end %>
+    </tbody>
+</table>
+</div>

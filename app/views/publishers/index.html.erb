@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="card rounded-6 mt-5 mb-5">
+        <div class="card-body">
+            <h2 class="text-center">Publisher Record</h2>
+        </div>
+    </div>
+    <%= flash[:notice] %>
+    <br/>
+    <%= link_to 'Create Publisher', new_publisher_path, class: 'btn btn-primary' %>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Address</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @publishers.each do |publisher| %>
+        <tr>
+
+            <td><%= publisher.format_id %></td>
+            <td><%= publisher.first_name %></td>
+            <td><%= publisher.last_name %></td>
+            <td><%= publisher.email %></td>
+            <td><%= publisher.country %></td>
+            <td><%= publisher.city %></td>
+            <td><%= publisher.address %></td>
+            <td>
+                <%= link_to 'Edit', edit_publisher_path(publisher), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Detail', publisher_path(publisher), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Add Article', article_new_path(publisher.id)  , class: 'btn btn-xs btn-info' %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>

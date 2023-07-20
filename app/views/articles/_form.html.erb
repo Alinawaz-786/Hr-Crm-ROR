@@ -1,0 +1,38 @@
+<%= form_with model: article  do |form| %>
+  <% if @article.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <%  @article.errors.full_messages.each do |message| %>
+                    <li class="text-danger">
+                            <%= message %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <input type="hidden" name="article[publisher_id]" id="publisher_id" value=<%=  @publisher_id %> autocomplete="off">
+    <div class="mb-2">
+        <%= form.label  :act_header %>
+        <%= form.text_field :act_header,  class: 'form-control' %>
+        <%  @article.errors.full_messages_for(:act_header).each do |message_name| %><p class="text-danger"><%= message_name %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :act_body %>
+        <%= form.text_field :act_body,  class: 'form-control' %>
+        <%  @article.errors.full_messages_for(:act_body).each do |message_name| %><p class="text-danger"><%= message_name %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :act_type %>
+        <%= form.text_field :act_type,  class: 'form-control' %>
+        <%  @article.errors.full_messages_for(:act_type).each do |message_name| %><p class="text-danger"><%= message_name %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :publish_date %>
+        <%= form.date_field :publish_date,  class: 'form-control'   %>
+        <%  @article.errors.full_messages_for(:publish_date).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+      <div class="mb-2">
+          <button type="submit" class="btn btn-primary  mb-2"><%= @action %></button>
+      </div>
+<% end %>

@@ -8,17 +8,17 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <% if admin_signed_in? %>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/suppliers">Supplier</a>
+          <a class="nav-link active" aria-current="page" href="/publishers">Publisher</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <%= link_to 'Article', articles_path, class: 'nav-link' %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to 'Logout', destroy_admin_session_path, class: 'dropdown-item', method: :delete, data:{confirm: 'Are you Sure you want to logout.'} %></li>
+            <li><%= link_to 'Logout', destroy_admin_session_path, class: 'dropdown-item', method: :delete  %></li>
             <li disabled><a class="dropdown-item" href="javascript:void()" disabled ><%= current_admin.email %></a></li>
           </ul>
         </li>

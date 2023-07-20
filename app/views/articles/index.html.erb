@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="card rounded-6 mt-5 mb-5">
+        <div class="card-body">
+            <h2 class="text-center">Article Record</h2>
+        </div>
+    </div>
+    <%= flash[:notice] %>
+    <br/>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>act_header</th>
+            <th>act_body</th>
+            <th>act_type</th>
+            <th>publish_date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @articles.each do |article| %>
+        <tr>
+
+            <td><%= article.format_id %></td>
+            <td><%= article.act_header %></td>
+            <td><%= article.act_body %></td>
+            <td><%= article.act_type %></td>
+            <td><%= article.publish_date %></td>
+            <td>
+                <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Detail', articles_path(article), class: 'btn btn-xs btn-primary' %>
+                <%= link_to 'Attach Documents', documents_new_path(article.id)  , class: 'btn btn-xs btn-info' %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+</div>

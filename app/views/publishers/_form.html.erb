@@ -1,0 +1,74 @@
+ <%= form_with model: publisher do |form| %>
+
+    <% if @publisher.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                <%  @publisher.errors.full_messages.each do |message| %>
+                    <li class="text-danger">
+                            <%= message %>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+
+    <% end %>
+
+
+    <div class="mb-2">
+        <%= form.label  :first_name %>
+            <%= form.text_field :first_name,  class: 'form-control' %>
+            <%  @publisher.errors.full_messages_for(:first_name).each do |message_fn| %><p class="text-danger"><%= message_fn %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :last_name %>
+            <%= form.text_field :last_name,   class: 'form-control' %>
+            <%  @publisher.errors.full_messages_for(:last_name).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :email %>
+            <%= form.text_field :email,   class: 'form-control' %>
+            <%  @publisher.errors.full_messages_for(:email).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :country %>
+            <%= form.text_field :country,  class: 'form-control'   %>
+            <%  @publisher.errors.full_messages_for(:country).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+
+             <%= form.label  :country %>
+             <%= form.select :country, options_for_select(countries_list.map { |country| [country['name'], country['code']] }, selected: publisher.country), {prompt: 'Select Country'},{class: 'form-select'} %>
+             <%  @publisher.errors.full_messages_for(:country).each do |message_doc_type| %><p class="text-danger"><%= message_doc_type %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :city %>
+            <%= form.text_field :city,  class: 'form-control'   %>
+            <%  @publisher.errors.full_messages_for(:city).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <%= form.label  :address %>
+            <%= form.text_field  :address, class: 'form-control'   %>
+            <%  @publisher.errors.full_messages_for(:address).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+
+    <div class="mb-2">
+        <%= form.label  :dob %>
+            <%= form.date_field :dob,  class: 'form-control'   %>
+            <%  @publisher.errors.full_messages_for(:dob).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+
+    <div class="mb-2">
+        <%= form.label  :gander %>
+        <%= form.select :gander, options_for_select(Publisher::GANDER, selected: publisher.gander), {prompt: 'Select Gander'},{class: 'form-select'} %>
+         <%  @publisher.errors.full_messages_for(:gander).each do |message_doc_type| %><p class="text-danger"><%= message_doc_type %></p><% end %>
+    </div>
+
+    <div class="mb-2">
+        <%= form.label  :age %>
+            <%= form.number_field :age,  class: 'form-control'   %>
+            <%  @publisher.errors.full_messages_for(:age).each do |message_ls| %><p class="text-danger"><%= message_ls %></p><% end %>
+    </div>
+    <div class="mb-2">
+        <button type="submit" class="btn btn-primary  mb-2"><%= @action %></button>
+    </div>
+
+<% end %>

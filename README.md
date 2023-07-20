@@ -1,4 +1,12 @@
 # README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+# README
 ## HR-CRM
 
 rails new hr-crm
@@ -50,6 +58,7 @@ bundle install
 *  rails generate devise:install
 *  rails g devise user
 *  rails db:migrate
+*  rails db:create
 *  rails g devise:controllers admins
 *  rails g devise:views admins
 
@@ -58,6 +67,11 @@ bundle install
 *  Use this to download install and zip file https://dev.mysql.com/downloads/mysql/
 *  Use lib file of mysql-zip from ruby directory in mysql folder.
 *  Run this command gem install mysql2 --, '--with-mysql-lib="C:\mysql2\lib"  --with-mysql-include="C:\mysql2\include"'
+*  rails generate model Publisher first_name:string  last_name:string email:strin gander: strind country:string city:string address:string  dob:data age:integer
+*  rails generate controller Publishers index show new create edit update destroy
+*  rails generate controller Articles index show new create edit update destroy
+*  rails g model articles act_header act_body act_type publish_date:date  publisher:references
+*  rails g model documents name doc_type article:references
 
 
 This README would normally document whatever steps are necessary to get the
@@ -66,6 +80,22 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
 
 * System dependencies
 

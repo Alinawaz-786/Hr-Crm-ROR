@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Add Publisher</h2>
+        </div>
+         <div class="alert alert-primary" role="alert">
+             <%= flash[:notice] %>
+         </div>
+        <div class="card-body">
+           <%= render 'form', publisher: @publisher  %>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Attach Documents   </h2>
+        </div>
+        <% if flash[:notice] %>
+        <div class="alert alert-primary" role="alert">
+             <%= flash[:notice] %>
+        </div>
+        <% end %>
+        <div class="card-body">
+           <%= render 'form', article: @article, publisher_id: @publisher_id  %>
+        </div>
+    </div>
+</div>
+

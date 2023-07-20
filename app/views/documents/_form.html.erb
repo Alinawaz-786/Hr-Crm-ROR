@@ -1,0 +1,30 @@
+<%= form_with model: document  do |form| %>
+  <% if @document.errors.any? %>
+        <ul>
+            <%  @document.errors.full_messages.each do |message| %>
+                <li class="text-danger">
+                        <%= message %>
+                </li>
+            <% end %>
+        </ul>
+    <% end %>
+    <input type="hidden" name="document[article_id]" id="article_id" value=<%=  @article_id %> autocomplete="off">
+    <div class="mb-2">
+        <%= form.label  :name %>
+        <%= form.text_field :name,  class: 'form-control' %>
+        <%  @document.errors.full_messages_for(:name).each do |message_name| %><p class="text-danger"><%= message_name %></p><% end %>
+    </div>
+     <div class="mb-2">
+            <%= form.label  :image %>
+            <%= form.file_field :image,  class: 'form-control' %>
+            <%  @document.errors.full_messages_for(:name).each do |message_name| %><p class="text-danger"><%= message_name %></p><% end %>
+      </div>
+     <div class="mb-2">
+        <%= form.label  :doc_type %>
+        <%= form.select :doc_type, options_for_select(Document::DOC_TYPES,selected: document.doc_type), {prompt: 'select Document Type'},{class: 'form-select'} %>
+         <%  @document.errors.full_messages_for(:doc_type).each do |message_doc_type| %><p class="text-danger"><%= message_doc_type %></p><% end %>
+     </div>
+      <div class="mb-2">
+          <button type="submit" class="btn btn-primary  mb-2"><%= @action %></button>
+      </div>
+<% end %>

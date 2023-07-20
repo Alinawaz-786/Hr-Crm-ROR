@@ -9,7 +9,7 @@ class DocumentsController < ApplicationController
 
   def new
      @article_id = params[:art_id]
-     @document = Document.new();
+     @document = Document.new;
      @action = 'Save'
   end
 

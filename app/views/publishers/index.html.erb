@@ -4,7 +4,11 @@
             <h2 class="text-center">Publisher Record</h2>
         </div>
     </div>
-    <%= flash[:notice] %>
+    <% if flash[:notice] %>
+         <div class="alert alert-primary" role="alert">
+             <%= flash[:notice] %>
+         </div>
+     <% end %>
     <br/>
     <%= link_to 'Create Publisher', new_publisher_path, class: 'btn btn-primary' %>
 <table class="table table-bordered">

@@ -4,7 +4,11 @@
             <h2 class="text-center">Article Record</h2>
         </div>
     </div>
-    <%= flash[:notice] %>
+    <% if flash[:notice] %>
+         <div class="alert alert-primary" role="alert">
+             <%= flash[:notice] %>
+         </div>
+     <% end %>
     <br/>
 <table class="table table-bordered">
     <thead>
